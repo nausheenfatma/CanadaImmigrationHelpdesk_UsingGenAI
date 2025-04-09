@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "canadaimmigrationhelpdesk-usinggenai"
+version = "0.1.0"
+description = ""
+authors = ["nausheenfatma <fatma.nausheen@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+huggingface = "^0.0.1"
+transformers = "^4.51.1"
+openai = "^1.72.0"
+faiss-cpu = "^1.10.0"
+llama-index = "^0.12.29"
+requests = "^2.32.3"
+tiktoken = "^0.9.0"
+ollama = "^0.4.7"
+llama-index-llms-ollama = "^0.5.4"
+torch = "^2.6.0"
+llama-index-llms-openai = "^0.3.32"
+llama-index-embeddings-huggingface = "^0.5.3"
+llama-index-vector-stores-faiss = "^0.3.0"
+chromadb = "^1.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

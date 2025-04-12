@@ -1,10 +1,8 @@
 
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core import Settings
-
 from llama_index.core import StorageContext, load_index_from_storage
 from llama_index.vector_stores.faiss import FaissVectorStore
-
 from llama_index.llms.ollama import Ollama
 llm = Ollama(model="llama2", request_timeout=100.0)
 
@@ -13,7 +11,7 @@ Settings.embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/al
 
 INDEX_PATH = "../index_directory"
 
-# load index from disk
+# Load RAG index from disk
 vector_store = FaissVectorStore.from_persist_dir(INDEX_PATH)
 storage_context = StorageContext.from_defaults(
     vector_store=vector_store, persist_dir=INDEX_PATH)
@@ -21,7 +19,17 @@ index = load_index_from_storage(storage_context=storage_context)
 retriever = index.as_retriever()
 
 # Query function
-def query_rag_system(question):
+def query_rag_system(question: str):
+    """
+    This method take a natural language text query, retrieves the knowledge base using embeddings similarity. 
+    Then generates the answers from retrieved documents as context.
+
+    Args:
+        question (str): Query to ask 
+
+    Returns:
+        Natural Language response from LLM
+    """
     retrieved_docs = retriever.retrieve(question)
     context = "\n".join([doc.text for doc in retrieved_docs])    
     prompt = f"Context:\n{context}\n\n Question: {question}\n\n\n\nAnswer:"

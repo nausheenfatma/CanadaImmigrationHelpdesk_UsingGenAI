@@ -1,3 +1,8 @@
+"""
+This script takes a base url and crawls all the  web links (outlinks) found within the page. 
+It then does to the outlinks and extracts more web links until a certain specified depth
+"""
+
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse, urlunparse
@@ -21,15 +26,25 @@ immigration_path_path = "/en/immigration-refugees-citizenship/"
 
 MAX_DEPTH = 3  # set your desired max depth
 
-def is_subpage(url):
-    parsed_url = urlparse(url)
-    return parsed_url.netloc == base_domain and parsed_url.path.startswith(immigration_path_path)
-
 
 class Language(Enum):
     ENGLISH = 'English'
     FRENCH = 'French'
     UNKNOWN = 'Unknown'
+    
+
+def is_immigration_subpage(url):
+    """ 
+    Check whether the url string is a URL of our interest i.e a child path page of immigration-refugees-citizenship webpage
+
+    Args:
+        url (str): url string
+
+    Returns:
+        boolean: True if page of interest
+    """
+    parsed_url = urlparse(url)
+    return parsed_url.netloc == base_domain and parsed_url.path.startswith(immigration_path_path)
 
 
 def get_language_from_url(url):
@@ -76,53 +91,19 @@ def clean_url(full_url:str):
     return clean
 
 
-def scrape_site(url, base_url):
-    
-    url = clean_url(url)
-    
-    # If already visited return
-    if url in visited:
-        return
-
-    # Only scrape English pages
-    language = get_language_from_url(url)
-    if not language == Language.ENGLISH:
-        return
-    
-    # Add url to visited 
-    visited.add(url)
-
-    try:
-        response = requests.get(url, timeout=5)
-        soup = BeautifulSoup(response.text, 'html.parser')
-    except Exception as e:
-        print(f"Failed to fetch {url}: {e}")
-        return
-
-    # Find all internal links (subpages)
-    for link_tag in soup.find_all('a', href=True):
-        href = link_tag['href']
-        full_url = urljoin(url, href)
-        
-        # Only follow links within the same domain
-        if urlparse(full_url).netloc == urlparse(base_url).netloc:
-            scrape_site(full_url, base_url)
-
-
-def scrape_page_links(url):
+def scrape_outlinks(url):
     """
     
-    Returns all pages in the url to crawl
+    Returns all the outlinks found in the url page to crawl
 
     Args:
-        url (_type_): _description_
+        url (str): input url to crawl
 
     Returns:
-        _type_: _description_
+        set (str): set of outlinks
     """
     
     try:
-        #print(f"Scraping: {url}")
         response = requests.get(url)
         soup = BeautifulSoup(response.text, "html.parser")
         
@@ -130,13 +111,12 @@ def scrape_page_links(url):
         links = set()
         for link_tag in soup.find_all("a", href=True):
             full_url = urljoin(url, link_tag["href"])
-            
             full_url = clean_url(full_url)
 
             # Only scrape English language pages
             language = get_language_from_url(full_url)
             
-            if is_subpage(full_url) and full_url not in visited and language == Language.ENGLISH:
+            if is_immigration_subpage(full_url) and full_url not in visited and language == Language.ENGLISH:
                 links.add(full_url)
         return links
     except Exception as e:
@@ -146,26 +126,18 @@ def scrape_page_links(url):
 
 
 def crawl(start_url):
-    to_visit = set([start_url])
-    
     queue = deque([(start_url, 0)])  # each item is (url, depth)
     
-    #bfs crawling
+    #BFS craw all links popped from queue (beginning from start url page)
     while queue:
         current_url, depth = queue.popleft()
-        
-        
         if current_url in visited or depth > MAX_DEPTH:
             continue
         
         visited.add(current_url)
-        print(f"[Depth {depth}] Scraping: {current_url}")
-        
-        out_links = scrape_page_links(current_url)
+        out_links = scrape_outlinks(current_url)
         for link in out_links:
             if link not in visited:
                 queue.append((link, depth + 1))
-                
-        print ("new_links added", out_links)
 
 crawl(start_url)

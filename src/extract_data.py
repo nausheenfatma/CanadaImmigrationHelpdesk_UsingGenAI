@@ -4,8 +4,6 @@ This script takes URL(s) and scrapes relevant information.
 Business specific rules are applied to understand which parts of website we are interested and care about
 """
 
-
-
 import requests
 from bs4 import BeautifulSoup, Tag
 

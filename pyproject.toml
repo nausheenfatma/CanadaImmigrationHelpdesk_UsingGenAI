@@ -22,6 +22,9 @@ llama-index-llms-openai = "^0.3.32"
 llama-index-embeddings-huggingface = "^0.5.3"
 llama-index-vector-stores-faiss = "^0.3.0"
 chromadb = "^1.0.3"
+duckduckgo-search = "^8.0.0"
+langchain = "^0.3.23"
+numexpr = "^2.10.2"
 
 
 [build-system]

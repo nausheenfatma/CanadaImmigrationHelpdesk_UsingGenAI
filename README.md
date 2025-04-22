@@ -2,7 +2,7 @@ This a project for learning and information purposes (not for commercial use):
 
 Problem Statement: 
 
-The Canada.ca website is the official web portal of the Government of Canada. It's designed to provide centralized access to government information, programs, and services for the public, businesses, and visitors. Currently, due to the information coverage in the website, it is often daunting to search back and forth through several pages when searching for a very specific question in mind. Even though the website has a search tool bar, it return several pages while quering and the user has to go through all of them.
+The Canada.ca website (https://www.canada.ca/en.html) is the official web portal of the Government of Canada. It's designed to provide centralized access to government information, programs, and services for the public, businesses, and visitors. Currently, due to the information coverage in the website, it is often daunting to search back and forth through several pages when searching for a very specific question in mind. Even though the website has a search tool bar, it return several pages while quering and the user has to go through all of them.
 
 Proposed Solution and Goals:
 
@@ -24,9 +24,9 @@ Few Goals to start with (To be updated as the project progresses):
         iii) Question: Can I apply for my spouse's open work permit while he is already visiting Canada?
 
 
-    ii. Calculator tools: 
+    ii. Calculator tool(s): 
         
-    Few examples how calculators can be invoked:
+    Few examples of how calculators can be invoked:
         
         i) Qusetion: I have a family PR application: myself, my spouse and 2 kids. How much will be my total fees?
 

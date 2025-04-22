@@ -15,16 +15,22 @@ Few Goals to start with (To be updated as the project progresses):
 
     i. Question Answering Tool:  The chat assistant agent will be able to answer questions in a consise manner without the user having to scroll multiple pages back and forth of the Canada.ca website.
 
-    Example: 
-    Question: Can I drive in Canada after my immigration on my home country's driving license?
+    Examples: 
+
+        i) Question: Can I still apply using LMIA route?
+
+        ii) Question: Can I drive in Canada after my immigration on my home country's driving license?
+
+        iii) Question: Can I apply for my spouse's open work permit while he is already visiting Canada?
+
 
     ii. Calculator tools: 
         
-        Few examples how calculators can be invoked:
+    Few examples how calculators can be invoked:
         
-        I have a family PR application: myself, my spouse and 2 kids. How much will be my total fees?
+        i) Qusetion: I have a family PR application: myself, my spouse and 2 kids. How much will be my total fees?
 
-        I applied for immigration in January 2025. How long should my application take to process?
+        ii) Question: I applied for immigration in January 2025. How long should my application take to process?
 
 
 2. Build a simple Web Interface and host the chat assistant.

@@ -12,9 +12,11 @@ Goals (To be updated as the project progresss):
 
     ii. Calculator tools: 
         
-        -I have a family PR application: myself, my spouse and 2 kids. How much will be my total fees?
+        Few examples how calculators can be invoked:
+        
+        I have a family PR application: myself, my spouse and 2 kids. How much will be my total fees?
 
-        - I applied for immigration in January 2025. How long should my application take to process?
+        I applied for immigration in January 2025. How long should my application take to process?
 
 
 2. Build a simple Web Interface and host the chat assistant.

@@ -1,12 +1,14 @@
 This a project for learning and information purposes (not for commercial use):
 
-Problem Statement: The Canada.ca website is the official web portal of the Government of Canada. It's designed to provide centralized access to government information, programs, and services for the public, businesses, and visitors. 
+Problem Statement: 
 
- Currently, due to the information coverage in the website, it is often daunting to search back and forth through several pages when searching for a very specific question in mind. 
+The Canada.ca website is the official web portal of the Government of Canada. It's designed to provide centralized access to government information, programs, and services for the public, businesses, and visitors. Currently, due to the information coverage in the website, it is often daunting to search back and forth through several pages when searching for a very specific question in mind. Even though the website has a search tool bar, it return several pages while quering and the user has to go through all of them.
 
- I am building a Generative AI chat assistant (starting from immigration related enquiries usecase) to answer some of the user questions in a precise manner without having to search through multiple pages.
+Proposed Solution and Goals:
 
-Goals (To be updated as the project progresses):
+I am building a Generative AI chat assistant (starting from immigration related enquiries usecase) to answer some of the user questions in a precise and user friendly manner without having to search through multiple pages.
+
+Few Goals to start with (To be updated as the project progresses):
 
 1. The assistant will have Agentic capabilities to use Routers to decide which of the following tools to choose:
 

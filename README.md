@@ -28,7 +28,7 @@ Few Goals to start with (To be updated as the project progresses):
         
     Few examples of how calculators can be invoked:
         
-        i) Qusetion: I have a family PR application: myself, my spouse and 2 kids. How much will be my total fees?
+        i) Question: I have a family PR application: myself, my spouse and 2 kids. How much will be my total fees?
 
         ii) Question: I applied for immigration in January 2025. How long should my application take to process?
 

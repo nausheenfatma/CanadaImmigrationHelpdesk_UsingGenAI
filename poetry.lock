@@ -174,6 +174,19 @@ files = [
 tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
+name = "asyncio"
+version = "3.4.3"
+description = "reference implementation of PEP 3156"
+optional = false
+python-versions = "*"
+files = [
+    {file = "asyncio-3.4.3-cp33-none-win32.whl", hash = "sha256:b62c9157d36187eca799c378e572c969f0da87cd5fc42ca372d92cdb06e7e1de"},
+    {file = "asyncio-3.4.3-cp33-none-win_amd64.whl", hash = "sha256:c46a87b48213d7464f22d9a497b9eef8c1928b68320a2fa94240f969f6fec08c"},
+    {file = "asyncio-3.4.3-py3-none-any.whl", hash = "sha256:c4d18b22701821de07bd6aea8b53d21449ec0ec5680645e5317062ea21817d2d"},
+    {file = "asyncio-3.4.3.tar.gz", hash = "sha256:83360ff8bc97980e4ff25c964c7bd3923d333d177aa4f7fb736b019f26c7cb41"},
+]
+
+[[package]]
 name = "attrs"
 version = "25.3.0"
 description = "Classes Without Boilerplate"
@@ -534,6 +547,21 @@ files = [
     {file = "charset_normalizer-3.4.1-py3-none-any.whl", hash = "sha256:d98b1668f06378c6dbefec3b92299716b931cd4e6061f3c875a71ced1780ab85"},
     {file = "charset_normalizer-3.4.1.tar.gz", hash = "sha256:44251f18cd68a75b56585dd00dae26183e102cd5e0f9f1466e6df5da2ed64ea3"},
 ]
+
+[[package]]
+name = "chatollama"
+version = "0.2.13"
+description = "A python module for conversational AI with ollama"
+optional = false
+python-versions = ">=3.10"
+files = [
+    {file = "chatollama-0.2.13-py3-none-any.whl", hash = "sha256:e9624ff662453c8542e4cb1a2bf8831be4c82b1d3e89157f897309ace7ec4f2a"},
+    {file = "chatollama-0.2.13.tar.gz", hash = "sha256:4e7e3e6dfbc96860beb20c28ea1a0dcadcf2d063028315e5027af0329d669241"},
+]
+
+[package.dependencies]
+asyncio = "*"
+ollama = "*"
 
 [[package]]
 name = "chroma-hnswlib"
@@ -5588,4 +5616,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "b60a0d2bdaf335572665802e1006320920ab8ae8a85e500a8663a8c6319df665"
+content-hash = "684fa9543ea8b51d6adda9a7fc78475b3fda6900d4a0d17d6a5e36de666f1811"

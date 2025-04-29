@@ -25,6 +25,7 @@ chromadb = "^1.0.3"
 duckduckgo-search = "^8.0.0"
 langchain = "^0.3.23"
 numexpr = "^2.10.2"
+chatollama = "^0.2.13"
 
 
 [build-system]
